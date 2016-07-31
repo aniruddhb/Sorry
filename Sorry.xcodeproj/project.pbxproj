@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CA55D3CA9FFFBCF2037B3D1 /* Pods_Sorry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */; };
 		B6A804DB1D4D6FDC0050D813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */; };
 		B6A804E01D4D6FDC0050D813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A804DE1D4D6FDC0050D813 /* Main.storyboard */; };
 		B6A804E31D4D6FDC0050D813 /* Sorry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6A804E11D4D6FDC0050D813 /* Sorry.xcdatamodeld */; };
@@ -45,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sorry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B043B2AEE1FFAE8B69FD4BB /* Pods-Sorry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.release.xcconfig"; sourceTree = "<group>"; };
+		920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.debug.xcconfig"; sourceTree = "<group>"; };
 		B6A804D71D4D6FDC0050D813 /* Sorry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6A804DF1D4D6FDC0050D813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA55D3CA9FFFBCF2037B3D1 /* Pods_Sorry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +106,8 @@
 			children = (
 				B6A804D91D4D6FDC0050D813 /* Sorry */,
 				B6A804D81D4D6FDC0050D813 /* Products */,
+				FA6CA0873F8A87CFDD122B2B /* Pods */,
+				F6CE3B6C946105618573D28A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +171,23 @@
 			path = Spring;
 			sourceTree = "<group>";
 		};
+		F6CE3B6C946105618573D28A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA6CA0873F8A87CFDD122B2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */,
+				1B043B2AEE1FFAE8B69FD4BB /* Pods-Sorry.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6A804EC1D4D6FDC0050D813 /* Build configuration list for PBXNativeTarget "Sorry" */;
 			buildPhases = (
+				B9CEF9A2B7D9792970C002C8 /* [CP] Check Pods Manifest.lock */,
 				B6A804D31D4D6FDC0050D813 /* Sources */,
 				B6A804D41D4D6FDC0050D813 /* Frameworks */,
 				B6A804D51D4D6FDC0050D813 /* Resources */,
+				11CC8EFF2109BA5E7B6E2199 /* [CP] Embed Pods Frameworks */,
+				B45A57C2A16472665A187467 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +259,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11CC8EFF2109BA5E7B6E2199 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sorry/Pods-Sorry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B45A57C2A16472665A187467 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sorry/Pods-Sorry-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9CEF9A2B7D9792970C002C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6A804D31D4D6FDC0050D813 /* Sources */ = {
@@ -378,6 +453,7 @@
 		};
 		B6A804ED1D4D6FDC0050D813 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sorry/Info.plist;
@@ -390,6 +466,7 @@
 		};
 		B6A804EE1D4D6FDC0050D813 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B043B2AEE1FFAE8B69FD4BB /* Pods-Sorry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sorry/Info.plist;
@@ -419,6 +496,7 @@
 				B6A804EE1D4D6FDC0050D813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
