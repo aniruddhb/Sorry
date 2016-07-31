@@ -59,6 +59,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonDidTouch:" destination="e5O-6P-V1S" eventType="touchUpInside" id="PUJ-wR-tWj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.78039215689999997" green="0.0" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,6 +79,9 @@
                                         <state key="normal" title="About">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="aboutButtonDidTouch:" destination="e5O-6P-V1S" eventType="touchUpInside" id="yfZ-au-8cU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.3411764705882353" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,18 +99,77 @@
                             <constraint firstItem="vwV-3q-337" firstAttribute="top" secondItem="6hU-NW-rK5" secondAttribute="bottom" id="9O9-tZ-lva"/>
                             <constraint firstItem="xrn-tG-I7m" firstAttribute="top" secondItem="zbd-cF-HK9" secondAttribute="bottom" id="9yF-am-TP6"/>
                             <constraint firstItem="6hU-NW-rK5" firstAttribute="height" secondItem="GAh-xE-hiR" secondAttribute="height" multiplier="0.2" id="BxB-mo-CKO"/>
+                            <constraint firstItem="xrn-tG-I7m" firstAttribute="leading" secondItem="GAh-xE-hiR" secondAttribute="leading" id="Dqy-dS-uP3"/>
                             <constraint firstItem="zbd-cF-HK9" firstAttribute="height" secondItem="GAh-xE-hiR" secondAttribute="height" multiplier="0.6" id="Dve-Sn-C1O"/>
+                            <constraint firstAttribute="trailing" secondItem="xrn-tG-I7m" secondAttribute="trailing" id="EKQ-Gk-UfN"/>
+                            <constraint firstItem="xrn-tG-I7m" firstAttribute="top" secondItem="zbd-cF-HK9" secondAttribute="bottom" id="GZf-hB-xlI"/>
                             <constraint firstItem="zbd-cF-HK9" firstAttribute="top" secondItem="GAh-xE-hiR" secondAttribute="top" id="JdC-Ag-t45"/>
                             <constraint firstAttribute="trailing" secondItem="6hU-NW-rK5" secondAttribute="trailing" id="NvX-iM-2YD"/>
                             <constraint firstAttribute="trailing" secondItem="xrn-tG-I7m" secondAttribute="trailing" id="V2q-qO-7lp"/>
                             <constraint firstAttribute="trailing" secondItem="zbd-cF-HK9" secondAttribute="trailing" id="Y49-Lc-XVs"/>
+                            <constraint firstItem="6hU-NW-rK5" firstAttribute="top" secondItem="xrn-tG-I7m" secondAttribute="bottom" id="aOs-nN-bxt"/>
                             <constraint firstItem="zbd-cF-HK9" firstAttribute="leading" secondItem="GAh-xE-hiR" secondAttribute="leading" id="od9-8v-tiU"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Pn-To-cuC"/>
+                                <exclude reference="8xT-Om-7lb"/>
+                                <exclude reference="9yF-am-TP6"/>
+                                <exclude reference="V2q-qO-7lp"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <segue destination="hFn-I7-9rc" kind="presentation" identifier="AboutSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="IXl-Vt-CBD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsJ-zg-iDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="450" y="427"/>
+            <point key="canvasLocation" x="138" y="413"/>
+        </scene>
+        <!--About Screen-->
+        <scene sceneID="yHM-c2-Dlk">
+            <objects>
+                <viewController title="About Screen" id="hFn-I7-9rc" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="LPE-aS-QuO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kpI-xp-VqG">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1c-OR-4pb">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <connections>
+                                        <segue destination="71v-un-wCC" kind="unwind" unwindAction="unwindToViewController:" id="JKG-DL-phH"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23k-2w-vpn" customClass="DesignableButton" customModule="Sorry" customModuleProvider="target">
+                                    <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                    <color key="backgroundColor" red="0.56470588239999997" green="0.047058823530000002" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="250" id="c44-Xv-s0k"/>
+                                        <constraint firstAttribute="height" constant="250" id="cgS-H7-AgZ"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="23k-2w-vpn" firstAttribute="centerY" secondItem="kpI-xp-VqG" secondAttribute="centerY" id="4Hq-tn-H35"/>
+                                <constraint firstItem="23k-2w-vpn" firstAttribute="centerX" secondItem="kpI-xp-VqG" secondAttribute="centerX" id="9RL-tG-VSV"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yya-yc-GUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="71v-un-wCC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="1171"/>
         </scene>
     </scenes>
 </document>

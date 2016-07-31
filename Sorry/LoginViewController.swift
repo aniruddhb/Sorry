@@ -10,6 +10,18 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // MARK: - IBAction's
+    
+    @IBAction func loginButtonDidTouch(sender: UIButton) {
+    
+    }
+    
+    @IBAction func aboutButtonDidTouch(sender: UIButton) {
+        performSegueWithIdentifier("AboutSegue", sender: sender)
+    }
+    
+    // MARK: - iOS Memory Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +34,6 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -30,6 +41,4 @@ class LoginViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }
