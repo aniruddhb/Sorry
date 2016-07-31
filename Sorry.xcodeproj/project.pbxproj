@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6CA55D3CA9FFFBCF2037B3D1 /* Pods_Sorry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */; };
+		B6924FA11D4EB51C00FDAE61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */; };
 		B6A804DB1D4D6FDC0050D813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */; };
 		B6A804E01D4D6FDC0050D813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A804DE1D4D6FDC0050D813 /* Main.storyboard */; };
 		B6A804E31D4D6FDC0050D813 /* Sorry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6A804E11D4D6FDC0050D813 /* Sorry.xcdatamodeld */; };
@@ -49,6 +50,8 @@
 		0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sorry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B043B2AEE1FFAE8B69FD4BB /* Pods-Sorry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.release.xcconfig"; sourceTree = "<group>"; };
 		920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.debug.xcconfig"; sourceTree = "<group>"; };
+		B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B6924FA21D4EB63B00FDAE61 /* Sorry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sorry-Bridging-Header.h"; sourceTree = "<group>"; };
 		B6A804D71D4D6FDC0050D813 /* Sorry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6A804DF1D4D6FDC0050D813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,10 +107,12 @@
 		B6A804CE1D4D6FDC0050D813 = {
 			isa = PBXGroup;
 			children = (
+				B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */,
 				B6A804D91D4D6FDC0050D813 /* Sorry */,
 				B6A804D81D4D6FDC0050D813 /* Products */,
 				FA6CA0873F8A87CFDD122B2B /* Pods */,
 				F6CE3B6C946105618573D28A /* Frameworks */,
+				B6924FA21D4EB63B00FDAE61 /* Sorry-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,6 +260,7 @@
 				B6A804E51D4D6FDC0050D813 /* Assets.xcassets in Resources */,
 				B6A804E01D4D6FDC0050D813 /* Main.storyboard in Resources */,
 				B6A8051F1D4D876B0050D813 /* LoadingView.xib in Resources */,
+				B6924FA11D4EB51C00FDAE61 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,11 +462,14 @@
 			baseConfigurationReference = 920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sorry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.aniruddhb.Sorry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sorry-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -469,11 +478,13 @@
 			baseConfigurationReference = 1B043B2AEE1FFAE8B69FD4BB /* Pods-Sorry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Sorry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.aniruddhb.Sorry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sorry-Bridging-Header.h";
 			};
 			name = Release;
 		};
