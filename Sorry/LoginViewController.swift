@@ -56,8 +56,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if error == nil {
-            // grab the user's contacts (to be implemented later, for now just grab local contacts)
-            print(user.profile.email)
+            // segue to the home-screen (tableview)
+            performSegueWithIdentifier("HomeSegue", sender: nil)
         } else {
             print("\(error.localizedDescription)")
         }
