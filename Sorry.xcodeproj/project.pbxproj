@@ -47,6 +47,7 @@
 		B6A8052B1D4D876B0050D813 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8050E1D4D876B0050D813 /* TransitionZoom.swift */; };
 		B6A8052C1D4D876B0050D813 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8050F1D4D876B0050D813 /* UnwindSegue.swift */; };
 		B6B22E811D4EDF0700BF6B7C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B22E801D4EDF0700BF6B7C /* HomeViewController.swift */; };
+		B6C5140F1D4FFC38003AA686 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5140E1D4FFC38003AA686 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		B6A8050E1D4D876B0050D813 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		B6A8050F1D4D876B0050D813 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		B6B22E801D4EDF0700BF6B7C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B6C5140E1D4FFC38003AA686 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				B6A804DE1D4D6FDC0050D813 /* Main.storyboard */,
 				B61382231D4EEC7C008A43F7 /* ContactTableViewCell.swift */,
 				B68068E11D4ECABF007C79B5 /* AboutViewController.swift */,
+				B6C5140E1D4FFC38003AA686 /* Contact.swift */,
 				B6B22E801D4EDF0700BF6B7C /* HomeViewController.swift */,
 				B6A804EF1D4D752A0050D813 /* LoginViewController.swift */,
 				B6A804E41D4D6FDC0050D813 /* Assets.xcassets */,
@@ -330,6 +333,7 @@
 			files = (
 				B6A805161D4D876B0050D813 /* DesignableLabel.swift in Sources */,
 				B6A805251D4D876B0050D813 /* SpringImageView.swift in Sources */,
+				B6C5140F1D4FFC38003AA686 /* Contact.swift in Sources */,
 				B6A805121D4D876B0050D813 /* AutoTextView.swift in Sources */,
 				B6A8051B1D4D876B0050D813 /* ImageLoader.swift in Sources */,
 				B6A805201D4D876B0050D813 /* Misc.swift in Sources */,

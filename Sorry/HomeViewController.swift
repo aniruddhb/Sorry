@@ -12,7 +12,10 @@ import Contacts
 class HomeViewController: UITableViewController {
     
     /* local variable to hold all contacts */
-    var userContacts: [CNContact] = [CNContact]()
+    var userContacts: [Contact] = []
+    
+    // local array holding flatui background colors
+    var flatUIColors: [String] = ["1abc9c", "16a085", "f1c40f", "f39c12", "2ecc71", "27ae60", "e67e22", "d35400", "3498db", "2980b9", "e74c3c", "c0392b", "9b59b6", "8e44ad", "34495e", "2c3e50"]
     
     // MARK: - On Load Function
     
@@ -44,7 +47,10 @@ class HomeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! ContactTableViewCell
         
         // set cell name
-        cell.contactName.text = userContacts[indexPath.row].givenName
+        cell.contactName.text = userContacts[indexPath.row].contactName
+        
+        // set cell color
+        cell.backgroundColor = UIColor(hex: userContacts[indexPath.row].contactBackgroundColor)
         
         // return cell
         return cell
@@ -56,31 +62,47 @@ class HomeViewController: UITableViewController {
         // show loading animation
         self.view.showLoading()
         
-        // declare contact store from db
-        let contactStore = CNContactStore()
+        // declare local cncontacts array (to be converted into local model)
+        var localUserContacts: [CNContact] = []
         
-        // define keys to fetch
-        let contactProperties = [CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName), CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactImageDataKey, CNContactThumbnailImageDataKey]
+        // declare set of keys to grab within contacts
+        let contactKeys = [CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName), CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactImageDataKey, CNContactThumbnailImageDataKey]
         
-        // get all contact containers
+        // grab all contact containers on phone
         var allContactContainers: [CNContainer] = []
         do {
-            allContactContainers = try contactStore.containersMatchingPredicate(nil)
+            allContactContainers = try CNContactStore().containersMatchingPredicate(nil)
         } catch {
-            print("Error - could not fetch containers")
+            print("Error retrieving contact containers")
         }
         
-        // iterate through containers and append contacts to total array
-        for contactContainer in allContactContainers {
-            // define the predicate for this container
-            let contactPredicate = CNContact.predicateForContactsInContainerWithIdentifier(contactContainer.identifier)
+        // iterate over all containers
+        for eachContainer in allContactContainers {
+            // find container id for this container
+            let contactContainerID = eachContainer.identifier
             
+            // construct predicate for this container
+            let contactContainerPredicate = CNContact.predicateForContactsInContainerWithIdentifier(contactContainerID)
+            
+            // get contacts form this container and append to overall array
             do {
-                let containerResults = try contactStore.unifiedContactsMatchingPredicate(contactPredicate, keysToFetch: contactProperties)
-                self.userContacts.appendContentsOf(containerResults)
+                let containerContacts = try CNContactStore().unifiedContactsMatchingPredicate(contactContainerPredicate, keysToFetch: contactKeys)
+                localUserContacts.appendContentsOf(containerContacts)
             } catch {
-                print("Error fetching contacts for this container")
+                print("Error retriving contacts from this container")
             }
+        }
+        
+        // convert each entry from the localUserContacts into the Contact model
+        for eachContact in localUserContacts {
+            // declare contact model
+            let contactModelInstance: Contact = Contact()
+            
+            // configure instance
+            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))])
+            
+            // append to global scope array
+            userContacts.append(contactModelInstance)
         }
         
         // hide loading animation
