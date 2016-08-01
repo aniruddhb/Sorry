@@ -33,6 +33,23 @@ class HomeViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - TableView DataSource Functions
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userContacts.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ContactTableViewCell {
+        // declare cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! ContactTableViewCell
+        
+        // set cell name
+        cell.contactName.text = userContacts[indexPath.row].givenName
+        
+        // return cell
+        return cell
+    }
+    
     // MARK: - Custom Functions
     
     func populateView() {
