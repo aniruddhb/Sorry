@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6CA55D3CA9FFFBCF2037B3D1 /* Pods_Sorry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */; };
+		B68068E21D4ECABF007C79B5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68068E11D4ECABF007C79B5 /* AboutViewController.swift */; };
 		B6924FA11D4EB51C00FDAE61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */; };
 		B6A804DB1D4D6FDC0050D813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */; };
 		B6A804E01D4D6FDC0050D813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A804DE1D4D6FDC0050D813 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sorry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B043B2AEE1FFAE8B69FD4BB /* Pods-Sorry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.release.xcconfig"; sourceTree = "<group>"; };
 		920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.debug.xcconfig"; sourceTree = "<group>"; };
+		B68068E11D4ECABF007C79B5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B6924FA21D4EB63B00FDAE61 /* Sorry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sorry-Bridging-Header.h"; sourceTree = "<group>"; };
 		B6A804D71D4D6FDC0050D813 /* Sorry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				B6A804F11D4D876B0050D813 /* Spring */,
 				B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */,
 				B6A804DE1D4D6FDC0050D813 /* Main.storyboard */,
+				B68068E11D4ECABF007C79B5 /* AboutViewController.swift */,
 				B6A804EF1D4D752A0050D813 /* LoginViewController.swift */,
 				B6A804E41D4D6FDC0050D813 /* Assets.xcassets */,
 				B6A804E61D4D6FDC0050D813 /* LaunchScreen.storyboard */,
@@ -327,6 +330,7 @@
 				B6A805131D4D876B0050D813 /* BlurView.swift in Sources */,
 				B6A8052C1D4D876B0050D813 /* UnwindSegue.swift in Sources */,
 				B6A8051E1D4D876B0050D813 /* LoadingView.swift in Sources */,
+				B68068E21D4ECABF007C79B5 /* AboutViewController.swift in Sources */,
 				B6A805271D4D876B0050D813 /* SpringTextField.swift in Sources */,
 				B6A805221D4D876B0050D813 /* Spring.swift in Sources */,
 				B6A804F01D4D752A0050D813 /* LoginViewController.swift in Sources */,
