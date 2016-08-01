@@ -45,6 +45,7 @@
 		B6A8052A1D4D876B0050D813 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8050D1D4D876B0050D813 /* TransitionManager.swift */; };
 		B6A8052B1D4D876B0050D813 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8050E1D4D876B0050D813 /* TransitionZoom.swift */; };
 		B6A8052C1D4D876B0050D813 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8050F1D4D876B0050D813 /* UnwindSegue.swift */; };
+		B6B22E811D4EDF0700BF6B7C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B22E801D4EDF0700BF6B7C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		B6A8050D1D4D876B0050D813 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		B6A8050E1D4D876B0050D813 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		B6A8050F1D4D876B0050D813 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		B6B22E801D4EDF0700BF6B7C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */,
 				B6A804DE1D4D6FDC0050D813 /* Main.storyboard */,
 				B68068E11D4ECABF007C79B5 /* AboutViewController.swift */,
+				B6B22E801D4EDF0700BF6B7C /* HomeViewController.swift */,
 				B6A804EF1D4D752A0050D813 /* LoginViewController.swift */,
 				B6A804E41D4D6FDC0050D813 /* Assets.xcassets */,
 				B6A804E61D4D6FDC0050D813 /* LaunchScreen.storyboard */,
@@ -349,6 +352,7 @@
 				B6A805291D4D876B0050D813 /* SpringView.swift in Sources */,
 				B6A805281D4D876B0050D813 /* SpringTextView.swift in Sources */,
 				B6A8051D1D4D876B0050D813 /* KeyboardLayoutConstraint.swift in Sources */,
+				B6B22E811D4EDF0700BF6B7C /* HomeViewController.swift in Sources */,
 				B6A805241D4D876B0050D813 /* SpringButton.swift in Sources */,
 				B6A805231D4D876B0050D813 /* SpringAnimation.swift in Sources */,
 				B6A805151D4D876B0050D813 /* DesignableImageView.swift in Sources */,
