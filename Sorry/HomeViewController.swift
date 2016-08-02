@@ -27,6 +27,9 @@ class HomeViewController: UITableViewController {
         // set title of navigation bar to 'Contacts'
         self.title = "Contacts"
         
+        // set seperator style to none
+        self.tableView.separatorStyle = .None
+        
         // populate the view
         populateView()
     }
