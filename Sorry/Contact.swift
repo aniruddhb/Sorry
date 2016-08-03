@@ -10,12 +10,14 @@ import Foundation
 
 class Contact {
     /* model for each contact. currently
-       contains 2 different properties. 
+       contains 3 different properties.
        name and background color */
     
     var contactName: String = ""
     
     var contactBackgroundColor: String = ""
+    
+    var contactPrimaryPhoneNumber: String = ""
     
     func configure(name: String, color: String) {
         contactName = name
