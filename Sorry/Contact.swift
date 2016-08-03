@@ -19,8 +19,9 @@ class Contact {
     
     var contactPrimaryPhoneNumber: String = ""
     
-    func configure(name: String, color: String) {
+    func configure(name: String, color: String, number: String) {
         contactName = name
         contactBackgroundColor = color
+        contactPrimaryPhoneNumber = number
     }
 }

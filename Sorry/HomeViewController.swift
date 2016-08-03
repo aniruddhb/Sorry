@@ -137,7 +137,7 @@ class HomeViewController: UITableViewController {
             let contactModelInstance: Contact = Contact()
             
             // configure instance
-            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))])
+            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))], number: (eachContact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as? String ?? "No number on record")
             
             // append to global scope array
             userContacts.append(contactModelInstance)
