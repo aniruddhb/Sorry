@@ -160,23 +160,36 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEs-Vq-w2L">
-                                            <rect key="frame" x="140" y="15" width="320" height="70"/>
+                                            <rect key="frame" x="140" y="5" width="320" height="70"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="70" id="6V9-rA-KsR"/>
-                                                <constraint firstAttribute="width" constant="320" id="SnN-QK-yNN"/>
+                                                <constraint firstAttribute="width" constant="320" id="PBu-zZ-YPb"/>
+                                                <constraint firstAttribute="height" constant="70" id="mYh-EO-laB"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="48"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEI-dH-e4A">
+                                            <rect key="frame" x="250" y="66" width="100" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="8KZ-5O-rfn"/>
+                                                <constraint firstAttribute="height" constant="25" id="b3c-5K-6bz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="CEs-Vq-w2L" firstAttribute="centerY" secondItem="jwe-U1-Q2r" secondAttribute="centerY" id="Bxq-dp-OCR"/>
-                                        <constraint firstItem="CEs-Vq-w2L" firstAttribute="centerX" secondItem="jwe-U1-Q2r" secondAttribute="centerX" id="zJh-w2-7qs"/>
+                                        <constraint firstItem="CEs-Vq-w2L" firstAttribute="top" secondItem="jwe-U1-Q2r" secondAttribute="top" constant="5" id="OYa-CU-SmV"/>
+                                        <constraint firstItem="eEI-dH-e4A" firstAttribute="centerX" secondItem="jwe-U1-Q2r" secondAttribute="centerX" id="Uhq-4r-MaL"/>
+                                        <constraint firstItem="eEI-dH-e4A" firstAttribute="top" secondItem="CEs-Vq-w2L" secondAttribute="bottom" constant="-9" id="j8R-x1-7ZX"/>
+                                        <constraint firstItem="CEs-Vq-w2L" firstAttribute="centerX" secondItem="jwe-U1-Q2r" secondAttribute="centerX" id="wPf-JN-PA8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contactName" destination="CEs-Vq-w2L" id="ULh-0N-WF3"/>
+                                    <outlet property="contactPrimaryPhoneNumber" destination="eEI-dH-e4A" id="WPv-QH-5tM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -8,6 +8,7 @@
 
 import UIKit
 import Contacts
+import PhoneNumberKit
 
 class HomeViewController: UITableViewController {
     
@@ -70,20 +71,17 @@ class HomeViewController: UITableViewController {
         // if user isn't searching, return data from full array, but if user is, return from filtered list
         if searchController.active && searchController.searchBar.text != "" {
             cell.contactName.text = filteredUserContacts[indexPath.row].contactName
+            cell.contactPrimaryPhoneNumber.text = filteredUserContacts[indexPath.row].contactPrimaryPhoneNumber
             cell.backgroundColor = UIColor(hex: filteredUserContacts[indexPath.row].contactBackgroundColor)
         } else {
             cell.contactName.text = userContacts[indexPath.row].contactName
+            cell.contactPrimaryPhoneNumber.text = userContacts[indexPath.row].contactPrimaryPhoneNumber
             cell.backgroundColor = UIColor(hex: userContacts[indexPath.row].contactBackgroundColor)
         }
         
-        // set cell name
-        cell.contactName.text = userContacts[indexPath.row].contactName
-        
-        // set size of label in cell based on width
+        // set size of labels in cell based on width
         cell.contactName.adjustsFontSizeToFitWidth = true
-        
-        // set cell color
-        cell.backgroundColor = UIColor(hex: userContacts[indexPath.row].contactBackgroundColor)
+        cell.contactPrimaryPhoneNumber.adjustsFontSizeToFitWidth = true
         
         // return cell
         return cell
@@ -136,8 +134,12 @@ class HomeViewController: UITableViewController {
             // declare contact model
             let contactModelInstance: Contact = Contact()
             
+            // grab phone number for this instance
+            var instacePrimaryPhoneNumber: String = (eachContact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as? String ?? "Number unavailable"
+            
+            
             // configure instance
-            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))], number: (eachContact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as? String ?? "No number on record")
+            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))], number: instacePrimaryPhoneNumber)
             
             // append to global scope array
             userContacts.append(contactModelInstance)
