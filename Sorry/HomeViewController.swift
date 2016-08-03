@@ -8,9 +8,10 @@
 
 import UIKit
 import Contacts
+import MessageUI
 import PhoneNumberKit
 
-class HomeViewController: UITableViewController {
+class HomeViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
     
     /* local variable to hold all contacts */
     var userContacts: [Contact] = []
@@ -24,7 +25,7 @@ class HomeViewController: UITableViewController {
     // local array holding flatui background colors
     var flatUIColors: [String] = ["1abc9c", "16a085", "f1c40f", "f39c12", "2ecc71", "27ae60", "e67e22", "d35400", "3498db", "2980b9", "e74c3c", "c0392b", "9b59b6", "8e44ad", "34495e", "2c3e50"]
     
-    // MARK: - On Load Function
+    // MARK: - Basic Function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,16 @@ class HomeViewController: UITableViewController {
         
         // populate the view
         populateView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // show navigation bar
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        // hide navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,8 +99,34 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // grab this cell's phone number
+        let recipientPhoneNumber = (self.tableView.cellForRowAtIndexPath(indexPath) as! ContactTableViewCell).contactPrimaryPhoneNumber.text!
+        
+        // check if the number this cell holds is valid message compose controller class can send text
+        if recipientPhoneNumber != "Number unavailable" && MFMessageComposeViewController.canSendText() {
+            // declare message compose controller
+            let messageComposeController = MFMessageComposeViewController()
+            
+            // set body to "Sorry"
+            messageComposeController.body = "Sorry!"
+            
+            // set recipients
+            messageComposeController.recipients = [recipientPhoneNumber]
+            
+            // set delegate
+            messageComposeController.messageComposeDelegate = self
+            
+            // present the message compose controller
+            self.presentViewController(messageComposeController, animated: true, completion: nil)
+        }
+
         // deselect row once it has been selected
         self.tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
+    }
+    
+    // MARK: - Message Compose View Controller Delegate Protocol Functions
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Custom Functions
@@ -135,11 +172,14 @@ class HomeViewController: UITableViewController {
             let contactModelInstance: Contact = Contact()
             
             // grab phone number for this instance
-            var instacePrimaryPhoneNumber: String = (eachContact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as? String ?? "Number unavailable"
+            var instancePrimaryPhoneNumber: String = (eachContact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as? String ?? "Number unavailable"
+            if instancePrimaryPhoneNumber != "Number unavailable" {
+                instancePrimaryPhoneNumber = PartialFormatter().formatPartial(instancePrimaryPhoneNumber)
+            }
             
             
             // configure instance
-            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))], number: instacePrimaryPhoneNumber)
+            contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))], number: instancePrimaryPhoneNumber)
             
             // append to global scope array
             userContacts.append(contactModelInstance)
