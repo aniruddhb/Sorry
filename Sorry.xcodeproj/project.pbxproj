@@ -10,7 +10,6 @@
 		6CA55D3CA9FFFBCF2037B3D1 /* Pods_Sorry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C600C7F790D6D8C98543666 /* Pods_Sorry.framework */; };
 		B61382241D4EEC7C008A43F7 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61382231D4EEC7C008A43F7 /* ContactTableViewCell.swift */; };
 		B68068E21D4ECABF007C79B5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68068E11D4ECABF007C79B5 /* AboutViewController.swift */; };
-		B68704A21D52DC9B00426D34 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68704A11D52DC9B00426D34 /* Alamofire.framework */; };
 		B6924FA11D4EB51C00FDAE61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */; };
 		B6A804DB1D4D6FDC0050D813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A804DA1D4D6FDC0050D813 /* AppDelegate.swift */; };
 		B6A804E01D4D6FDC0050D813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A804DE1D4D6FDC0050D813 /* Main.storyboard */; };
@@ -57,7 +56,6 @@
 		920E24F754B64B4891D1553F /* Pods-Sorry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sorry/Pods-Sorry.debug.xcconfig"; sourceTree = "<group>"; };
 		B61382231D4EEC7C008A43F7 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		B68068E11D4ECABF007C79B5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		B68704881D52DC1300426D34 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../../Downloads/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		B68704A11D52DC9B00426D34 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Downloads/Alamofire-master/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		B6924FA01D4EB51C00FDAE61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B6924FA21D4EB63B00FDAE61 /* Sorry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sorry-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B68704A21D52DC9B00426D34 /* Alamofire.framework in Frameworks */,
 				6CA55D3CA9FFFBCF2037B3D1 /* Pods_Sorry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +122,6 @@
 				FA6CA0873F8A87CFDD122B2B /* Pods */,
 				F6CE3B6C946105618573D28A /* Frameworks */,
 				B6924FA21D4EB63B00FDAE61 /* Sorry-Bridging-Header.h */,
-				B68704881D52DC1300426D34 /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};

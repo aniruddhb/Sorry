@@ -8,7 +8,6 @@
 
 import UIKit
 import Contacts
-import Alamofire
 import PhoneNumberKit
 
 class HomeViewController: UITableViewController {
@@ -21,6 +20,9 @@ class HomeViewController: UITableViewController {
     
     /* local variable to hold user's phone number */
     var userPhoneNumber: String = ""
+    
+    /* local variable to hold user's name */
+    var userFullName: String = ""
     
     // search controller
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
@@ -35,17 +37,13 @@ class HomeViewController: UITableViewController {
         
         // Do any additional setup after loading the view.
         
-        // present alert controller to get user's phone number for twilio api sending
-        let phoneNumberAlert = UIAlertController(title: "Phone Number", message: "This app requires your phone number to be able to send text messages using the Twilio SMS API. Please enter your phone number below.", preferredStyle: .Alert)
-        phoneNumberAlert.addTextFieldWithConfigurationHandler { (textField) in
-            textField.text = "000-000-0000"
+        // get user information if the app does not already have it
+        if NSUserDefaults.standardUserDefaults().stringForKey("name") == nil {
+            getUserInformation()
+        } else {
+            userFullName = NSUserDefaults.standardUserDefaults().stringForKey("name")!
         }
-        phoneNumberAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-            self.userPhoneNumber = (phoneNumberAlert.textFields![0] as UITextField).text!.stringByReplacingOccurrencesOfString("-", withString: "")
-            print(self.userPhoneNumber)
-        }))
-        self.presentViewController(phoneNumberAlert, animated: true, completion: nil)
-        
+
         // set title of navigation bar to 'Contacts'
         self.title = "Contacts"
         
@@ -114,12 +112,53 @@ class HomeViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // grab this cell's phone number
-        let recipientPhoneNumber = (self.tableView.cellForRowAtIndexPath(indexPath) as! ContactTableViewCell).contactPrimaryPhoneNumber.text!
+        let recipientPhoneNumber = userContacts[indexPath.row].contactPrimaryPhoneNumber
+        print("RECIP: " + recipientPhoneNumber)
+
+        // declare twilio api creds
+        let SID = "ACf5d17836398007fbbe1d73444655f3fb"
+        let authToken = "e8b0762a5eeb245da0bd2fbc31d58846"
         
+        // declare message
+        let message = "Sorry! - " + userFullName
         
+        // declare request
+        let asyncRequest = NSMutableURLRequest(URL: NSURL(string: "https://\(SID):\(authToken)@api.twilio.com/2010-04-01/Accounts/\(SID)/SMS/Messages")!)
+        asyncRequest.HTTPMethod = "POST"
+        asyncRequest.HTTPBody = "From=+16509004731&To=\(recipientPhoneNumber)&Body=\(message)".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        // build and send request
+        NSURLSession.sharedSession().dataTaskWithRequest(asyncRequest, completionHandler: { (data, response, error) in
+            if let data = data, responseDetails = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                // Success
+                print(response)
+            } else {
+                // Failure
+                // print("Error: \(error)")
+            }
+        }).resume()
+        
+        // deselect this row
+        tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
     }
 
     // MARK: - Custom Functions
+    
+    func getUserInformation() {
+        // present alert controller to get user information for sms sending
+        let alert = UIAlertController(title: "Full Name", message: "This app requires your full name to be able to send personalized text messages. Please enter your phone number below, including your country code, and name", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (nameField: UITextField) in
+            nameField.text = "John Doe"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.userFullName = (alert.textFields![0] as UITextField).text!
+            
+            // store this information
+            NSUserDefaults.standardUserDefaults().setObject(self.userFullName, forKey: "name")
+            print(NSUserDefaults.standardUserDefaults().stringForKey("name"))
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     func populateView() {
         // show loading animation
