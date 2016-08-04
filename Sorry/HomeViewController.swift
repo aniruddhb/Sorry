@@ -11,13 +11,16 @@ import Contacts
 import MessageUI
 import PhoneNumberKit
 
-class HomeViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
+class HomeViewController: UITableViewController {
     
     /* local variable to hold all contacts */
     var userContacts: [Contact] = []
     
     /* local variable to hold all filtered contacts */
     var filteredUserContacts: [Contact] = []
+    
+    /* local variable to hold user's phone number */
+    var userPhoneNumber: String = ""
     
     // search controller
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
@@ -31,6 +34,17 @@ class HomeViewController: UITableViewController, MFMessageComposeViewControllerD
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        // present alert controller to get user's phone number for twilio api sending
+        let phoneNumberAlert = UIAlertController(title: "Phone Number", message: "This app requires your phone number to be able to send text messages using the Twilio SMS API. Please enter your phone number below.", preferredStyle: .Alert)
+        phoneNumberAlert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.text = "000-000-0000"
+        }
+        phoneNumberAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.userPhoneNumber = (phoneNumberAlert.textFields![0] as UITextField).text!.stringByReplacingOccurrencesOfString("-", withString: "")
+            print(self.userPhoneNumber)
+        }))
+        self.presentViewController(phoneNumberAlert, animated: true, completion: nil)
         
         // set title of navigation bar to 'Contacts'
         self.title = "Contacts"
@@ -102,33 +116,9 @@ class HomeViewController: UITableViewController, MFMessageComposeViewControllerD
         // grab this cell's phone number
         let recipientPhoneNumber = (self.tableView.cellForRowAtIndexPath(indexPath) as! ContactTableViewCell).contactPrimaryPhoneNumber.text!
         
-        // check if the number this cell holds is valid message compose controller class can send text
-        if recipientPhoneNumber != "Number unavailable" && MFMessageComposeViewController.canSendText() {
-            // declare message compose controller
-            let messageComposeController = MFMessageComposeViewController()
-            
-            // set body to "Sorry"
-            messageComposeController.body = "Sorry!"
-            
-            // set recipients
-            messageComposeController.recipients = [recipientPhoneNumber]
-            
-            // set delegate
-            messageComposeController.messageComposeDelegate = self
-            
-            // present the message compose controller
-            self.presentViewController(messageComposeController, animated: true, completion: nil)
-        }
+        
+    }
 
-        // deselect row once it has been selected
-        self.tableView.cellForRowAtIndexPath(indexPath)?.setSelected(false, animated: true)
-    }
-    
-    // MARK: - Message Compose View Controller Delegate Protocol Functions
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     // MARK: - Custom Functions
     
     func populateView() {
@@ -172,11 +162,11 @@ class HomeViewController: UITableViewController, MFMessageComposeViewControllerD
             let contactModelInstance: Contact = Contact()
             
             // grab phone number for this instance
-            var instancePrimaryPhoneNumber: String = (eachContact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as? String ?? "Number unavailable"
+            let instanceNumber = eachContact.phoneNumbers[0].value as! CNPhoneNumber
+            var instancePrimaryPhoneNumber: String = instanceNumber.valueForKey("digits") as? String ?? "Number unavailable"
             if instancePrimaryPhoneNumber != "Number unavailable" {
                 instancePrimaryPhoneNumber = PartialFormatter().formatPartial(instancePrimaryPhoneNumber)
             }
-            
             
             // configure instance
             contactModelInstance.configure(CNContactFormatter.stringFromContact(eachContact, style: .FullName)!, color: flatUIColors[Int(arc4random_uniform(UInt32(flatUIColors.count)))], number: instancePrimaryPhoneNumber)
